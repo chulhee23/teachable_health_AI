@@ -100,6 +100,7 @@
     // the link to your model provided by Teachable Machine export panel
     const URL = "./model/";
     let model, webcam, ctx, labelContainer, maxPredictions;
+    const canvas = document.getElementById("canvas");
     
     function updatePose(progressbar$El, data){
       let percentage = Math.round(data*100);
@@ -126,6 +127,7 @@
       webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
       await webcam.setup(); // request access to the webcam
       await webcam.play();
+      
       canvas.width = size; 
       canvas.height = size;
       $("#loading-spinner").remove()
