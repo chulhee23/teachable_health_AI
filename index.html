@@ -126,7 +126,8 @@
       webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
       await webcam.setup(); // request access to the webcam
       await webcam.play();
-      
+      canvas.width = size; 
+      canvas.height = size;
       $("#loading-spinner").remove()
       window.requestAnimationFrame(loop);
 
