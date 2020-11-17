@@ -100,7 +100,8 @@
     let model, webcam, ctx, labelContainer, maxPredictions;
     
     function updatePose(progressbar$El, data){
-      progressbar$El.css('width', `${data}`);
+      
+      progressbar$El.css('width', `${data*100}%`);
       progressbar$El.text(`${data*100}%`);
     }
 
@@ -123,14 +124,14 @@
       webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
       await webcam.setup(); // request access to the webcam
       await webcam.play();
-      $("canvas").css('width', '100px')
+      
       $("#loading-spinner").remove()
       window.requestAnimationFrame(loop);
 
       // append/get elements to the DOM
       const canvas = document.getElementById("canvas");
-      canvas.width = size; 
-      canvas.height = size;
+      
+      $(canvas).width("100%");
       ctx = canvas.getContext("2d");
       labelContainer = document.getElementById("label-container");
       for (let i = 0; i < maxPredictions; i++) { // and class labels
@@ -178,7 +179,7 @@
       }
       
       for (let i = 0; i < maxPredictions; i++) {
-        updatePose($(`${prediction[i].className}-progress`), prediction[i].probability.toFixed(2));
+        updatePose($(`.${prediction[i].className}-progress`), prediction[i].probability.toFixed(2));
         
         // const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         // labelContainer.childNodes[i].innerHTML = classPrediction;
