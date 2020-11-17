@@ -1,4 +1,6 @@
 # 웹 기반 AI 헬스 트레이너
+![service screenshot](statuc/service_screenshow.png)
+
 인공지는 모델이 인식할 수 있는 자세
 - stand: 일어선 자세
 - squat: 스쿼트 자세
