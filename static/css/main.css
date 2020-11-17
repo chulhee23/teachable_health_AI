@@ -1,0 +1,17 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, .8)),url('../squat.jpg') center right; 
+  background-size: cover;
+  background-blend-mode: grayscale(100%);
+  background-repeat: no-repeat;
+}
+
+
+.progress {
+  height: 40px;
+}
+
+.card .row {
+  align-items: center;
+}
