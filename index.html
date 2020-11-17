@@ -100,7 +100,6 @@
     // the link to your model provided by Teachable Machine export panel
     const URL = "./model/";
     let model, webcam, ctx, labelContainer, maxPredictions;
-    const canvas = document.getElementById("canvas");
     
     function updatePose(progressbar$El, data){
       let percentage = Math.round(data*100);
@@ -128,14 +127,14 @@
       await webcam.setup(); // request access to the webcam
       await webcam.play();
       
-      canvas.width = size; 
-      canvas.height = size;
       $("#loading-spinner").remove()
       window.requestAnimationFrame(loop);
 
       // append/get elements to the DOM
       const canvas = document.getElementById("canvas");
       
+      canvas.width = size;
+      canvas.height = size;
       
       ctx = canvas.getContext("2d");
       labelContainer = document.getElementById("label-container");
