@@ -170,7 +170,7 @@
           let audio = new Audio(`voices/${count % 10}.mp3`);
           audio.play();
           squatNumberContainer.innerHTML = count;
-          if (count == 5){
+          if (count == 10){
             // stretching 실시
             setTimeout(function(){
               let stretchAudio = new Audio(`voices/stretch.mp3`);
@@ -179,7 +179,7 @@
               count = 0;
               squatNumberContainer.innerHTML = count;
               setNumberContainer.innerHTML = squatSet;
-            }, 500)
+            }, 500) // audio 겹침 방지 위해 0.5초 딜레이
           }
         }
         status = "stand";
