@@ -86,8 +86,8 @@
             </div>
           </div>
           <div class="row">
-            <h1 id="squat-set-number-container" class="my-3 col-6">-</h1>
-            <h1 id="squat-number-container" class="my-3 col-6">-</h1>
+            <h1 id="squat-set-number-container" class="my-3 col-6"></h1>
+            <h1 id="squat-number-container" class="my-3 col-6"></h1>
           </div>
 
           <div class="btn btn-warning btn-lg btn-block mt-3" onclick="init()">LET'S SQUAT</div>
@@ -172,12 +172,14 @@
           squatNumberContainer.innerHTML = count;
           if (count == 10){
             // stretching 실시
-            let stretchAudio = new Audio(`voices/stretch.mp3`);
-            stretchAudio.play();
-            set++;
-            count = 0;
-            squatNumberContainer.innerHTML = count;
-            setNumberContainer.innerHTML = set;
+            setTimeout(function(){
+              let stretchAudio = new Audio(`voices/stretch.mp3`);
+              stretchAudio.play();
+              squatSet++;
+              count = 0;
+              squatNumberContainer.innerHTML = count;
+              setNumberContainer.innerHTML = squatSet;
+            }, 500)
           }
         }
         status = "stand";
